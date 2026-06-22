@@ -12,7 +12,7 @@ let card_song = `<article class="song-card">
         <div class="meta">{view_count} vistas</div>
         <div class="footer">
             <span class="channel">Canal: <a href="{channel_url}"
-                target="_blank" rel="noopener noreferrer">{channel}</a></span>
+                target="_blank">{channel}</a></span>
         </div>
     </div>
 </article>`
@@ -44,7 +44,7 @@ const loadSongs = async () => {
             //Para que siempre aparezcan los datos de las canciones 
             let renderedCard = card_song
                 .replace(/{thumbnail}/g, song.thumbnail)
-                .replace(/{title}/g, song.title) 
+                .replace(/{title}/g, song.title) //{title} se repetia en el codigo, y sin /.../g, no se reemplazaba en todas las ocurrencias, solo en la primera
                 .replace(/{duration_string}/g, song.duration_string)
                 .replace(/{view_count}/g, formatter.format(song.view_count))
                 .replace(/{channel}/g, song.channel)
